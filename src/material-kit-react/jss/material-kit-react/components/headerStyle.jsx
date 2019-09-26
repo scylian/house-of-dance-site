@@ -10,7 +10,7 @@ import {
   transition,
   boxShadow,
   drawerWidth
-} from "../../material-kit-react.jsx";
+} from "src/material-kit-react/jss/material-kit-react.jsx";
 
 const headerStyle = {
   appBar: {
@@ -62,6 +62,12 @@ const headerStyle = {
     "&:hover,&:focus": {
       color: "inherit",
       background: "transparent"
+    }
+  },
+  link: {
+    color: "inherit",
+    "&:hover,&:focus": {
+      color: "inherit"
     }
   },
   appResponsive: {

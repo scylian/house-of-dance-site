@@ -1,28 +1,35 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import { graphql, useStaticQuery } from "gatsby"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 // Components
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import HeroBanner from '../components/HeroBanner/heroBanner';
+import FloatingCard from '../components/FloatingCard/floatingCard';
+import Newsletter from '../components/Newsletter/newsletter';
 
-// Styles
-import '../material-kit-react/scss/material-kit-react.scss?v=1.4.0';
-import 'typeface-roboto';
-import 'typeface-roboto-slab';
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query HomePage {
+      contentfulHomePage {
+        id
+        body { json }
+        title
+      }
+    }
+  `);
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <HeroBanner/>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      {/* <Image /> */}
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  return ( 
+    <Layout>
+      <SEO title="Home" />
+      <HeroBanner/>
+      
+      <FloatingCard>
+        {documentToReactComponents(data.contentfulHomePage.body.json)}
+        <Newsletter/>
+      </FloatingCard>
+    </Layout>
+  )
+}
 
 export default IndexPage

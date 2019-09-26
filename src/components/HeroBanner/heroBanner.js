@@ -16,7 +16,7 @@ const HeroBanner = () => {
         title
         subtitle
         bannerImage {
-          fluid {
+          fluid(maxWidth: 1920) {
             src
           }
         }
@@ -25,7 +25,7 @@ const HeroBanner = () => {
   `)
 
   return (
-    <Parallax image={data.contentfulHeroBanner.bannerImage.fluid.src}>
+    <Parallax filter image={data.contentfulHeroBanner.bannerImage.fluid.src}>
       <div className={styles.container}>
         <GridContainer>
           <GridItem>

@@ -1,12 +1,21 @@
-import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import { AppBar, Toolbar, IconButton, Button, Hidden, Drawer } from '@material-ui/core';
-import Menu from '@material-ui/icons/Menu';
-
-// Styles
-import headerStyle from './headerStyle.jsx';
+import React from "react";
+import { Link } from 'gatsby';
+// nodejs library that concatenates classes
+import classNames from "classnames";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import Hidden from "@material-ui/core/Hidden";
+import Drawer from "@material-ui/core/Drawer";
+// @material-ui/icons
+import Menu from "@material-ui/icons/Menu";
+// core components
+import headerStyle from "src/material-kit-react/jss/material-kit-react/components/headerStyle.jsx";
 
 class Header extends React.Component {
   constructor(props) {
@@ -18,11 +27,11 @@ class Header extends React.Component {
     this.headerColorChange = this.headerColorChange.bind(this);
   }
   handleDrawerToggle() {
-    this.setState({ mobileOpen: !this.state.mobileOpen })
+    this.setState({ mobileOpen: !this.state.mobileOpen });
   }
   componentDidMount() {
-    if (this.props.changecolorOnScroll) {
-      window.addEventListener('scroll', this.headerColorChange);
+    if (this.props.changeColorOnScroll) {
+      window.addEventListener("scroll", this.headerColorChange);
     }
   }
   headerColorChange() {
@@ -46,7 +55,7 @@ class Header extends React.Component {
   }
   componentWillUnmount() {
     if (this.props.changeColorOnScroll) {
-      typeof window !== 'undefined' && window.removeEventListener('scroll', this.headerColorChange);
+      typeof window !== 'undefined' && window.removeEventListener("scroll", this.headerColorChange);
     }
   }
   render() {
@@ -65,7 +74,7 @@ class Header extends React.Component {
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-    const brandComponent = <Button className={classes.title}>{brand}</Button>;
+    const brandComponent = <Button className={classes.title}><Link to='/' className={classes.link}>{brand}</Link></Button>;
     return (
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
@@ -109,7 +118,7 @@ class Header extends React.Component {
           </Drawer>
         </Hidden>
       </AppBar>
-    )
+    );
   }
 }
 

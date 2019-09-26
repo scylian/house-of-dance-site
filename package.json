@@ -32,14 +32,18 @@
     "nouislider": "^14.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-datetime": "^2.16.3",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-icon": "^1.0.0",
     "react-icons": "^3.7.0",
+    "react-slick": "^0.25.2",
+    "react-swipeable-views": "^0.13.3",
     "typeface-roboto": "0.0.75",
     "typeface-roboto-slab": "0.0.72"
   },
   "devDependencies": {
+    "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.18.2"
   },
   "keywords": [
