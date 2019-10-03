@@ -74,7 +74,7 @@ class Header extends React.Component {
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-    const brandComponent = <Button className={classes.title}><Link to='/' className={classes.link}>{brand}</Link></Button>;
+    const brandComponent = <Link to='/' className={classes.link}><Button className={classes.title}>{brand}</Button></Link>;
     return (
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
