@@ -35,12 +35,11 @@ const HeaderLinks = (props) =>  {
       {data.allContentfulNavigationLinks.edges.map((edge, index) => {
         return (
         <ListItem className={classes.listItem} key={index}>
-          <Button
-            color="transparent"
-            className={classes.navLink}
-          >
-            <Link to={'/'+edge.node.slug} className={styles.link}>{edge.node.name}</Link>
-          </Button>
+          <Link to={'/'+edge.node.slug} className={styles.link}>
+            <Button color="transparent"className={classes.navLink}>
+              {edge.node.name}
+            </Button>
+          </Link>
         </ListItem>
       )})}
     </List>
